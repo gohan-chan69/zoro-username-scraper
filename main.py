@@ -33,6 +33,7 @@ class image_scraper:
             a.write(i['author']['username'])
             a.write('\n')
             self.lst.append(i['author']['username'])
+            print(f'\033[38;5;77m[+] successfully scraped username from i['author']['username']')
 
            
 print(logo)
