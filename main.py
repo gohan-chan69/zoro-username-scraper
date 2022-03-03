@@ -26,14 +26,14 @@ class image_scraper:
      self.r = requests.get(f"https://discord.com/api/v8/channels/{self.channel_id}/messages", headers=self.headers)
      jsonnn = loads(self.r.text)
      self.lst = []
-     os.remove('name.txt')
      with open("name.txt","a", errors="ignore") as a:  
        for i in jsonnn:
          if i['author']['username'] not in self.lst:
-            a.write(i['author']['username'])
+            self.user = i['author']['username']
+            a.write(self.user)
             a.write('\n')
-            self.lst.append(i['author']['username'])
-            print(f'\033[38;5;77m[+] successfully scraped username from i['author']['username']')
+            self.lst.append(self.user)
+            print(f'\033[38;5;77m[+] successfully scraped username from {self.user}')
 
            
 print(logo)
